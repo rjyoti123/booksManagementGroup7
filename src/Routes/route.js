@@ -9,7 +9,7 @@ const userController = require("../controllers/userController.js")
 
 //__________________________________-|| MIDDLEWARE ||___________________________________
 
-const {Authentication,Authorisation} = require("../middleware/middleware.js")
+const {Authentication,Authorisation} = require("../middleware/auth")
 
 // __________________________________|| USER ||__________________________________
 
@@ -18,23 +18,23 @@ router.post("/login", userController.loginUser)
 
 // __________________________________|| BOOK ||__________________________________
 
-router.post("/books", Authentication, Authorisation, bookController.createBooks)
+router.post("/books", Authentication,Authorisation, bookController.createBooks)
 
-router.get("/books", Authentication, bookController.getBooks)
+//router.get("/books", Authentication, bookController.getBookswithquery)
 
-router.get("/books/:bookId", Authentication, bookController.getBookById)
+//router.get("/books/:bookId", Authentication, bookController.getBookById)
 
-router.put("/books/:bookId", Authentication, Authorisation, bookController.updateBook)
+//router.put("/books/:bookId",Authentication,authorization, bookController.updateBookById)
 
-router.delete("/books/:bookId", Authentication, Authorisation, bookController.deleteBook)
+//router.delete("/books/:bookId",Authentication,authorization ,bookController.deleteBookById)
 
 // __________________________________-|| REVIEW ||__________________________________
 
-router.post("/books/:bookId/review", reviewController.createReview)
+//router.post("/books/:bookId/review", reviewController.createReview)
 
-router.put("/books/:bookId/review/:reviewId", reviewController.updateReview)
+//router.put("/books/:bookId/review/:reviewId", reviewController.updateReview)
 
-router.delete("/books/:bookId/review/:reviewId", reviewController.deleteReview)
+//router.delete("/books/:bookId/review/:reviewId", reviewController.deleteReview)
 
 // __________________________________-|| ROUTER Export ||__________________________________-
   

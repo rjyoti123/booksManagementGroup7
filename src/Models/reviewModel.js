@@ -32,4 +32,4 @@ const reviewModel =  new mongoose.Schema({
         default: false},
   }, {timestamps : true})
 
-  module.exports = new mongoose.model('Review', reviewModel)
+  module.exports = mongoose.model('Review', reviewModel)
